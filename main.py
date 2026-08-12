@@ -10,7 +10,7 @@ MQTT_TOPIC = "f4/bis/gruppe4/temp"
 CLIENT_ID = "esp32-gruppe4"
 
 # Schwellenwert für Trockenheit (bitte testen und anpassen!)
-DRY_THRESHOLD = 2000
+DRY_THRESHOLD = 3000
 
 # 3. Connect to MQTT
 client = MQTTClient(CLIENT_ID, MQTT_BROKER)
@@ -38,12 +38,12 @@ while True:
         # --- LOGIK: Automatische Bewässerung ---
         pump_status = "OFF"
         if soil_val > DRY_THRESHOLD:
-            pump.value(0)
-            pump_status = "ON"
+            pump.value(0) #on
+            pump_status = 1
             print("On")
         else:
-            pump.value(1)
-            pump_status = "OFF"
+            pump.value(1) #off
+            pump_status = 0
             print("off")
         
         # Datenpaket erstellen
