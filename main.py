@@ -9,7 +9,7 @@ MQTT_TOPIC = "f4/bis/gruppe4/temp"
 CLIENT_ID = "esp32-gruppe4"
 
 # Schwellenwert für Trockenheit (bitte testen und anpassen!)
-DRY_THRESHOLD = 3000
+DRY_THRESHOLD = 2800
 
 # 3. Connect to MQTT
 client = MQTTClient(CLIENT_ID, MQTT_BROKER)
